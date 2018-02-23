@@ -73,7 +73,7 @@ function! gitgutter#diff#run_diff(bufnr, preserve_full_diff) abort
   endif
 
   " Write file from index to temporary file.
-  let index_name = g:gitgutter_diff_base.':'.gitgutter#utility#repo_path(a:bufnr, 1)
+  let index_name = gitgutter#get_diff_base().':'.gitgutter#utility#repo_path(a:bufnr, 1)
   let cmd .= g:gitgutter_git_executable.' show '.index_name.' > '.index_file.' && '
 
   " Write buffer to temporary file.

@@ -81,6 +81,17 @@ function! gitgutter#toggle() abort
   endif
 endfunction
 
+function! gitgutter#set_diff_base(base)
+  let b:gitgutter_diff_base = a:base
+endfunction
+
+function! gitgutter#get_diff_base()
+  if exists('b:gitgutter_diff_base')
+    return b:gitgutter_diff_base
+  else
+    return g:gitgutter_diff_base
+  endif
+endfunction
 " }}}
 
 function! s:has_fresh_changes(bufnr) abort
