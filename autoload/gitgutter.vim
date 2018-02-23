@@ -87,7 +87,7 @@ function! gitgutter#set_diff_base(...)
   else
     let b:gitgutter_diff_base = a:1
   endif
-  call gitgutter#process_buffer(bufnr(''), 0)
+  call gitgutter#process_buffer(bufnr(''), 1)
 endfunction
 
 function! gitgutter#get_diff_base()
