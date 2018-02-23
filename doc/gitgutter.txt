@@ -148,6 +148,13 @@ Commands for operating on a hunk:~
                         Use |:pclose| or |CTRL-W_CTRL-Z| to close the preview
                         window.
 
+Commands for altering the comparison
+
+  :GitGutterBase                                               *:GitGutterBase*
+    Alter the base used to determine which lines have changed.
+    Takes an optional single argument specifying the commit against which
+    comparisons are done. If no argument is supplied, comparisons will be
+    against the index.
 
 ===============================================================================
 AUTOCOMMAND                                             *gitgutter-autocommand*
@@ -277,12 +284,14 @@ Use this option to pass any extra arguments to git-diff.  For example:
                                                         *g:gitgutter_diff_base*
 Default: empty
 
-By default buffers are diffed against the index.  Use this option to diff against
-a revision instead.  For example:
+By default buffers are diffed against the index.  Use this option default to diff
+against a revision instead.  For example:
 >
     let g:gitgutter_diff_base = '<some commit SHA>'
 <
 
+The GitGutterBase command can be used to diff against a different commit for
+individual buffers.
                                                              *g:gitgutter_grep*
 Default: 'grep'
 
