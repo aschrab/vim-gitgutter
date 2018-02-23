@@ -90,6 +90,7 @@ command -bar GitGutter    call gitgutter#process_buffer(bufnr(''), 1)
 command -bar GitGutterDisable call gitgutter#disable()
 command -bar GitGutterEnable  call gitgutter#enable()
 command -bar GitGutterToggle  call gitgutter#toggle()
+command -bar -nargs=? GitGutterBase call gitgutter#set_diff_base(<f-args>)
 
 " }}}
 
