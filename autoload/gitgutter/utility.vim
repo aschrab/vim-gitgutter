@@ -188,7 +188,21 @@ function! s:restore_shell() abort
   endif
 endfunction
 
+function! gitgutter#utility#set_diff_base(bufnr, ...)
+  if (a:0 == 0)
+    let base = ''
+  else
+    let base = a:1
+  endif
+  call gitgutter#utility#setbufvar(a:bufnr, 'diff_base', base)
+  call gitgutter#process_buffer(a:bufnr, 1)
+endfunction
+
 function! gitgutter#utility#get_diff_base(bufnr)
+  let base = gitgutter#utility#getbufvar(a:bufnr, 'diff_base', '')
+  if (base != '')
+    return base
+  endif
   let p = resolve(expand('#'.a:bufnr.':p'))
   let ml = matchlist(p, '\v^fugitive:/.*/(\x{40,})/')
   if !empty(ml) && !empty(ml[1])
