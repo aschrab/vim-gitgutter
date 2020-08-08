@@ -194,7 +194,7 @@ function! gitgutter#utility#set_diff_base(bufnr, ...)
   else
     let base = a:2
   endif
-  gitgutter#utility#setbufvar(a:bufnr, 'diff_base', base)
+  call gitgutter#utility#setbufvar(a:bufnr, 'diff_base', base)
   call gitgutter#process_buffer(a:bufnr, 1)
 endfunction
 
