@@ -119,7 +119,7 @@ command! -bar GitGutter    call gitgutter#process_buffer(bufnr(''), 1)
 command! -bar GitGutterDisable call gitgutter#disable()
 command! -bar GitGutterEnable  call gitgutter#enable()
 command! -bar GitGutterToggle  call gitgutter#toggle()
-command! -bar -nargs=? GitGutterBase call gitgutter#utility#set_diff_base(bufnr(''), <f-args>)
+command! -bar -nargs=? -complete=customlist,fugitive#CompleteObject GitGutterBase call gitgutter#utility#set_diff_base(bufnr(''), <f-args>)
 
 command! -bar GitGutterBufferDisable call gitgutter#buffer_disable()
 command! -bar GitGutterBufferEnable  call gitgutter#buffer_enable()
