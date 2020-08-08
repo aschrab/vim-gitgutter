@@ -189,10 +189,10 @@ function! s:restore_shell() abort
 endfunction
 
 function! gitgutter#utility#set_diff_base(bufnr, ...)
-  if (a:0 == 1)
+  if (a:0 == 0)
     let base = ''
   else
-    let base = a:2
+    let base = a:1
   endif
   call gitgutter#utility#setbufvar(a:bufnr, 'diff_base', base)
   call gitgutter#process_buffer(a:bufnr, 1)
